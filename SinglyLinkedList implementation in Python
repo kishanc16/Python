@@ -1,0 +1,37 @@
+class ListNode:
+  def __init__(self,data,nextNode=None):
+    self.data = data
+    self.nextNode = nextNode
+  
+  def getNextNode(self):
+       return self.nextNode
+
+  
+
+class SinglyLinkedList :
+  def __init__(self,head=None):
+    self.head = head
+    self.top= head
+  def createNode(self,data):
+    self.top = self.head
+    if(self.head is None):
+      self.head = ListNode(data,self.head)
+    else:
+      temp = ListNode(data,self.top)
+      self.top = temp
+  
+  def showNode(self):
+    curr = self.head
+    while curr:
+      print(curr.data)
+      curr = curr.getNextNode()
+    
+
+
+obj = SinglyLinkedList()
+obj.createNode(3)
+obj.createNode(5)
+obj.createNode(7)
+obj.createNode(9)
+
+obj.showNode()
